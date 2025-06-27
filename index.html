@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discord Redirect</title>
+  <script>
+    // Parse the access token from the URL fragment
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get('access_token');
+    if (accessToken) {
+      // Redirect to your app with the token
+      window.location = `mtcgt://discord-callback#access_token=${accessToken}`;
+    } else {
+      document.body.innerText = "No access token found.";
+    }
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
